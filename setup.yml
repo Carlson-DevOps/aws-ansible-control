@@ -1,0 +1,19 @@
+- hosts: all
+  become: true
+  gather_facts: false
+  tasks:
+    - name: update package cache
+      apt: update_cache=yes
+
+    - name: Install Pip
+      apt:
+        name: python-pip
+
+    - name: Install boto
+      pip:
+        name: boto
+
+    - name: Install boto3
+      pip:
+        name: boto3
+
